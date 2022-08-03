@@ -2,16 +2,12 @@
 #include<string>
 class Model
 {
-	Model(std::string) {
+	Model(std::string const &path) {
 
-		void loadModel();
+		void loadModel(std::string const& path);
 
 
 	}
-
-
-
-
 
 };
 

@@ -4,7 +4,7 @@
 
 
 
-void loadModel() {
+void loadModel(std::string const &path) {
 
 	std::cout << "load model" << std::endl;
 
@@ -13,6 +13,9 @@ void loadModel() {
          0.5f, -0.5f, 0.0f,
          0.0f,  0.5f, 0.0f
     };
+
+
+
     
 
 
