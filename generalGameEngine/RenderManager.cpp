@@ -35,6 +35,9 @@
 		return -1;
 	}
 
+	// vsync 0 = off
+	glfwSwapInterval(0);
+
 }
 
 	void RenderManager::shutDown() {
@@ -46,7 +49,7 @@
 
 	void RenderManager::render() {
 
-		glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
+		glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// rendering

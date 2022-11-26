@@ -153,6 +153,12 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="primitives.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fsDefaultShader.glsl" />
+    <None Include="vsDefaultShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

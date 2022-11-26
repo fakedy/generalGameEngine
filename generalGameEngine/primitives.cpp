@@ -1,9 +1,4 @@
 #include "primitives.h"
+#include "Shader.h"
 
 
-
-
-class triangle {
-
-
-};
