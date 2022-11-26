@@ -1,10 +1,12 @@
 #pragma once
 class primitives
 {
+public:
 
     class triangle {
+    public:
 
-        float vertices[9] = {
+        static constexpr float vertices[] = {
             -0.5f, -0.5f, 0.0f,
              0.5f, -0.5f, 0.0f,
              0.0f,  0.5f, 0.0f

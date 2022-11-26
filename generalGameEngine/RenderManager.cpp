@@ -59,7 +59,7 @@
 
 
 
-		glDrawArrays(GL_LINES, 0,36);
+		glDrawArrays(GL_TRIANGLES, 0,36);
 
 
 		glfwSwapBuffers(window);

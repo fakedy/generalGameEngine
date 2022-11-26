@@ -11,3 +11,4 @@ class Model
 
 };
 
+void loadModel(std::string const& path);

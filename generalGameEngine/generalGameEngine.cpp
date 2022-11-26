@@ -1,5 +1,6 @@
 #include "logger.h"
 #include "Commander.h"
+#include "Model.h"
 
 
 // timing
@@ -8,7 +9,9 @@ double lag = 0.0f;
 float deltaTime = 0.0f;	// time between current frame and last frame
 const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
 
+void start();
 void update();
+
 
 int main(){
 	
@@ -17,6 +20,15 @@ int main(){
 		Log(ERROR, "SubSystems didnt load properly");
 		return -1;
 	}
+
+
+
+
+	start();
+
+
+
+
 	
 	// engine loop
 
@@ -49,6 +61,13 @@ int main(){
 
 }
 
+void start() {
+
+	loadModel("triangle");
+
+
+
+}
 
 void update() {
 

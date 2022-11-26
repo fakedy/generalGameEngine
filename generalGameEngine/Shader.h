@@ -73,6 +73,8 @@ public:
         glDeleteShader(vertex);
         glDeleteShader(fragment);
 
+        std::cout << "Created shader program with id: " << ID << std::endl;
+
 
 
 
