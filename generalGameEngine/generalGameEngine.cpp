@@ -10,6 +10,9 @@ double lag = 0.0f;
 float deltaTime = 0.0f;	// time between current frame and last frame
 const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
 
+
+std::vector<GameObject> gameobjects; // A vector containing all the gameobjects
+
 void start();
 void update();
 
@@ -54,6 +57,7 @@ int main(){
 
 
 		RenderManager::render();
+		gameobjects[0].Draw();
 	}
 
 	glfwTerminate();
@@ -63,15 +67,11 @@ int main(){
 }
 
 void start() {
-
-
-	std::vector<GameObject> gameobjects;
-
-	gameobjects.push_back(GameObject("Object", "triangle"));
+	
+	gameobjects.push_back(GameObject("Object", "cube"));
 	gameobjects.push_back(GameObject("Object", "triangle"));
 
-
-
+	
 
 
 }

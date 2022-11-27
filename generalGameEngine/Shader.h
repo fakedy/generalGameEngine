@@ -77,7 +77,6 @@ public:
 
 
 
-
 	}
 
     // activate the shader
