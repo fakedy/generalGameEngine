@@ -5,9 +5,8 @@
 
 
 // timing
-double previous = 0.0f;
+double previous = static_cast<float>(glfwGetTime());
 double lag = 0.0f;
-float deltaTime = 0.0f;	// time between current frame and last frame
 const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
 
 
@@ -26,27 +25,24 @@ int main(){
 	}
 
 
-
-
 	start();
-
-
-
 
 	
 	// engine loop
 
 	while (!glfwWindowShouldClose(window)) {
 
+		// not sure the updating is correct
+
 		// deltaTime
 		double current = static_cast<float>(glfwGetTime());
 		double elapsed = current - previous;
 		previous = current;
 		lag += elapsed;
-		deltaTime = elapsed;
 
 		// process input function
 		InputManager::processInput(window);
+		update();
 
 		while (lag >= MS_PER_UPDATE) {
 
@@ -56,8 +52,8 @@ int main(){
 		}
 
 
-		RenderManager::render();
-		gameobjects[0].Draw();
+		RenderManager::render(gameobjects);
+		
 	}
 
 	glfwTerminate();
@@ -69,16 +65,18 @@ int main(){
 void start() {
 	
 	gameobjects.push_back(GameObject("Object", "cube"));
-	gameobjects.push_back(GameObject("Object", "triangle"));
 
 	
-
-
 }
 
 void update() {
 
-	Log(INFO, "hello:)");
+
+	for (int i = 0; i < gameobjects.size(); i++) {
+
+		gameobjects[i].Update();
+
+	}
 
 }
 

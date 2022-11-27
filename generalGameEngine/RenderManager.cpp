@@ -1,5 +1,7 @@
 #include "RenderManager.h"
 #include "logger.h"
+#include "GameObject.h"
+#include <vector>
 
 
 	GLFWwindow* window;
@@ -47,19 +49,19 @@
 	}
 
 
-	void RenderManager::render() {
+	void RenderManager::render(std::vector<GameObject> gameobjects) {
 
 		glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// rendering
 
+		for (int i = 0; i < gameobjects.size(); i++){
 
+		gameobjects[i].Draw();
 
+		}
 		
-
-
-		glDrawArrays(GL_TRIANGLES, 0,36);
 
 
 		glfwSwapBuffers(window);

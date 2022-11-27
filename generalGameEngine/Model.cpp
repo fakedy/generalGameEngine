@@ -4,11 +4,12 @@
 #include <GLFW/glfw3.h>
 
 #include "primitives.h"
-#include "Shader.h"
 #include <iostream>
 #include <vector>
 
     unsigned int VAO;
+
+    
 
 
 
@@ -16,16 +17,12 @@ void Model::loadModel(std::string const &path) {
 
 	std::cout << "Loading: " << path << std::endl;
 
-
-
-
-
     // Not intended to be hardcoded like this but it is what it is.
 	if (path == "cube") {
 
 
-        Shader defaultShader("vsDefaultShader.glsl", "fsDefaultShader.glsl");
-        defaultShader.use();
+        shader = new Shader("vsDefaultShader.glsl", "fsDefaultShader.glsl");
+        shader->use();
         
 
         unsigned int VBO;
@@ -51,6 +48,7 @@ void Model::loadModel(std::string const &path) {
         glBindVertexArray(0);
 
 	}
+
 
 }
 

@@ -9,3 +9,10 @@ void GameObject::Draw()
 
 
 }
+
+void GameObject::Update()
+{
+	model->shader->use();
+		
+
+}
