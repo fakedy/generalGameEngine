@@ -1,6 +1,7 @@
 #include "logger.h"
 #include "Commander.h"
-#include "Model.h"
+#include "GameObject.h"
+#include <vector>
 
 
 // timing
@@ -63,7 +64,13 @@ int main(){
 
 void start() {
 
-	loadModel("triangle");
+
+	std::vector<GameObject> gameobjects;
+
+	gameobjects.push_back(GameObject("Object", "triangle"));
+	gameobjects.push_back(GameObject("Object", "triangle"));
+
+
 
 
 

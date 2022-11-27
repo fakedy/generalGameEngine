@@ -13,16 +13,11 @@ void loadModel(std::string const &path) {
 
 	std::cout << "Loading: " << path << std::endl;
 
-
-
-
 	if (path == "triangle") {
 
-
-
         Shader defaultShader("vsDefaultShader.glsl", "fsDefaultShader.glsl");
-
-        glUseProgram(3);
+        defaultShader.use();
+        
 
         unsigned int VBO, VAO;
         glGenVertexArrays(1, &VAO);
@@ -42,7 +37,6 @@ void loadModel(std::string const &path) {
         // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
         // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
         //glBindVertexArray(0);
-
 
 	}
 

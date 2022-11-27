@@ -19,9 +19,6 @@
     <Filter Include="Header Files\SubSystems">
       <UniqueIdentifier>{d9aa96b5-5d46-4c9d-b4a7-a8856b89a571}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Primitives">
-      <UniqueIdentifier>{e8991c01-1400-4b71-b8a7-d1c583e72cfa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Primitives">
       <UniqueIdentifier>{436601f2-626f-41b5-8cf5-da77ca9a50e1}</UniqueIdentifier>
     </Filter>
@@ -41,9 +38,6 @@
     </ClCompile>
     <ClCompile Include="Commander.cpp">
       <Filter>Source Files\SubSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="primitives.cpp">
-      <Filter>Source Files\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="AudioManager.cpp">
       <Filter>Source Files\SubSystems</Filter>

@@ -4,12 +4,27 @@
 
 class GameObject
 {
+public:
 
-	glm::fvec3 position;
+
+	std::string objectName = "gameobject";
+	glm::fvec3 position = glm::fvec3(0,0,0);
 	glm::fvec3 rotation;
 
+	std::string modelPath = "triangle"; 
 
-	Model model;
+
+
+	GameObject(std::string const& name, std::string const& path) {
+
+		objectName = name;
+		modelPath = path;
+
+		loadModel(modelPath);
+
+	}
+
+
 
 };
 

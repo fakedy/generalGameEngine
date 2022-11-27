@@ -140,7 +140,6 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="primitives.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="generalGameEngine.cpp" />
   </ItemGroup>
