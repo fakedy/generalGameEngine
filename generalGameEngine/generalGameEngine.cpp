@@ -2,12 +2,15 @@
 #include "Commander.h"
 #include "GameObject.h"
 #include <vector>
+#include <iostream>
+#include <glm/gtx/string_cast.hpp>
 
 
 // timing
 double previous = static_cast<float>(glfwGetTime());
 double lag = 0.0f;
 const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
+
 
 
 std::vector<GameObject> gameobjects; // A vector containing all the gameobjects
@@ -64,10 +67,10 @@ int main(){
 
 void start() {
 	
-	gameobjects.push_back(GameObject("Object", "cube"));
+	// write wrong filename and you die.
 	gameobjects.push_back(GameObject("Object", "cube"));
 
-	gameobjects[0].position = glm::vec3(1.0, 0, 0);
+
 
 	
 }
@@ -78,6 +81,7 @@ void update() {
 	for (int i = 0; i < gameobjects.size(); i++) {
 
 		gameobjects[i].Update();
+
 
 	}
 
