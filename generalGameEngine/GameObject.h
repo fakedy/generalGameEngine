@@ -1,5 +1,6 @@
 #pragma once
 #include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
 #include"Model.h"
 #include<iostream>
 
@@ -11,6 +12,8 @@ public:
 	std::string objectName = "gameobject";
 	glm::fvec3 position = glm::fvec3(0,0,0);
 	glm::fvec3 rotation;
+	
+	bool staticObject = false;
 
 	std::string modelPath; 
 	Model* model;

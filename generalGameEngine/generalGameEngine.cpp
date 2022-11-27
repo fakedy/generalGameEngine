@@ -65,6 +65,9 @@ int main(){
 void start() {
 	
 	gameobjects.push_back(GameObject("Object", "cube"));
+	gameobjects.push_back(GameObject("Object", "cube"));
+
+	gameobjects[0].position = glm::vec3(1.0, 0, 0);
 
 	
 }
