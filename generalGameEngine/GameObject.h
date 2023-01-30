@@ -11,12 +11,14 @@ public:
 
 	std::string objectName = "gameobject";
 	glm::fvec3 position = glm::fvec3(0,0,0);
-	glm::fvec3 rotation;
-	
+	float rotation;
 	bool staticObject = false;
-
 	std::string modelPath; 
 	Model* model;
+
+
+
+
 
 
 private:
@@ -33,17 +35,12 @@ public:
 		if (&modelPath != NULL)
 
 			model = new Model(modelPath);
-
-			
-			
 	}
 
 	void Draw();
 
 	void Update();
 	
-
-
 };
 
 

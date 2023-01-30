@@ -68,7 +68,9 @@ int main(){
 void start() {
 	
 	// write wrong filename and you die.
-	gameobjects.push_back(GameObject("Object", "cube"));
+
+		gameobjects.push_back(GameObject("Object", "cube"));
+
 
 
 

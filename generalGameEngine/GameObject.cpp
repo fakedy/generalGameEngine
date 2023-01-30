@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <GLFW/glfw3.h>
 #include <iostream>
 
 
@@ -16,6 +17,7 @@ void GameObject::Draw()
 	model->shader->use();
 
 	trans = glm::translate(trans, position);
+	trans = glm::rotate(trans, rotation, glm::vec3(1.0f, 1.0f, 1.0f));
 
 	model->shader->setMat4("transform", trans);
 
@@ -28,7 +30,8 @@ void GameObject::Update()
 {
 	if (staticObject != true) {
 
-		
+		rotation = (float)glfwGetTime();
+		position = position;
 
 
 	}
