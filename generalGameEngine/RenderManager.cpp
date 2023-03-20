@@ -7,6 +7,10 @@
 	GLFWwindow* window;
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
+	// settings
+	const unsigned int SCR_WIDTH = 1920;
+	const unsigned int SCR_HEIGHT = 1080;
+
 	int RenderManager::startUp() {
 	
 
@@ -18,7 +22,7 @@
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
-	window = glfwCreateWindow(1920, 1080, "generalGameEngine", NULL, NULL);
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "generalGameEngine", NULL, NULL);
 	if (!window) {
 		Log(ERROR, "Window creation failed");
 		shutDown();
@@ -39,6 +43,10 @@
 
 	// vsync 0 = off
 	glfwSwapInterval(0);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_ALWAYS); // for future
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	
 
 }
 
@@ -52,7 +60,7 @@
 	void RenderManager::render(std::vector<GameObject> gameobjects) {
 
 		glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// rendering
 
@@ -74,3 +82,4 @@
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 		glViewport(0, 0, width, height);
 	}
+

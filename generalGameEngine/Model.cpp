@@ -4,14 +4,13 @@
 #include <GLFW/glfw3.h>
 
 #include "primitives.h"
+#include "logger.h"
 #include <iostream>
 #include <vector>
 
     unsigned int VAO;
 
     
-
-
 
 void Model::loadModel(std::string const &path) {
 
@@ -47,7 +46,12 @@ void Model::loadModel(std::string const &path) {
         // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
         glBindVertexArray(0);
 
-	}
+    }
+    else {
+
+        Log(ERROR, "Invalid Path to object");
+
+    }
 
 
 }

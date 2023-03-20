@@ -145,8 +145,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Commander.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="generalGameEngine.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="Model.h" />

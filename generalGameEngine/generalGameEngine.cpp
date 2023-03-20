@@ -1,3 +1,4 @@
+#include "generalGameEngine.h"
 #include "logger.h"
 #include "Commander.h"
 #include "GameObject.h"
@@ -5,11 +6,13 @@
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
 
+Camera* camera = new Camera("test");
 
 // timing
 double previous = static_cast<float>(glfwGetTime());
 double lag = 0.0f;
 const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
+double deltaTime;
 
 
 
@@ -39,12 +42,12 @@ int main(){
 
 		// deltaTime
 		double current = static_cast<float>(glfwGetTime());
-		double elapsed = current - previous;
+		deltaTime = current - previous;
 		previous = current;
-		lag += elapsed;
+		lag += deltaTime;
 
 		// process input function
-		InputManager::processInput(window);
+		InputManager::processInput(window, *camera, deltaTime);
 		update();
 
 		while (lag >= MS_PER_UPDATE) {
@@ -66,10 +69,12 @@ int main(){
 }
 
 void start() {
-	
-	// write wrong filename and you die.
 
-		gameobjects.push_back(GameObject("Object", "cube"));
+		
+		// write wrong filename and you die.
+		gameobjects.push_back(GameObject("Object", "cube", *camera));
+		
+
 
 
 }
