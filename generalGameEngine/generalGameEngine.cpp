@@ -72,9 +72,6 @@ void start() {
 		gameobjects.push_back(GameObject("Object", "cube"));
 
 
-
-
-	
 }
 
 void update() {
