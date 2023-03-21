@@ -44,7 +44,7 @@
 	// vsync 0 = off
 	glfwSwapInterval(0);
 	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_ALWAYS); // for future
+	//glDepthFunc(GL_ALWAYS); // for future
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	
 

@@ -5,10 +5,6 @@
 
 
 
-
-
-
-
 void GameObject::Draw()
 {
 
@@ -34,7 +30,6 @@ void GameObject::Draw()
 
 
 	model->Draw();
-
 
 }
 

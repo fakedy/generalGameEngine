@@ -51,6 +51,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files\SubSystems</Filter>
     </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files\SubSystems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="logger.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="generalGameEngine.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\SubSystems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

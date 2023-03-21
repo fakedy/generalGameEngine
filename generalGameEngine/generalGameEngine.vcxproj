@@ -142,6 +142,7 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="generalGameEngine.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="TextureLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fsDefaultShader.glsl" />

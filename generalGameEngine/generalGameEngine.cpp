@@ -2,9 +2,12 @@
 #include "logger.h"
 #include "Commander.h"
 #include "GameObject.h"
+#include "TextureLoader.h"
 #include <vector>
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
+
+
 
 Camera* camera = new Camera("test");
 
@@ -71,10 +74,8 @@ int main(){
 void start() {
 
 		
-		// write wrong filename and you die.
+		tempfunc();
 		gameobjects.push_back(GameObject("Object", "cube", *camera));
-		
-
 
 
 }
