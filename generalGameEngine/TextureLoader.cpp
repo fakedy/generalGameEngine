@@ -7,7 +7,7 @@
 
 
 
-void tempfunc() {
+void LoadTexture() {
 
 	
 

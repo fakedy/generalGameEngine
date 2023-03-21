@@ -2,13 +2,12 @@
 #include "logger.h"
 #include "Commander.h"
 #include "GameObject.h"
-#include "TextureLoader.h"
 #include <vector>
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
 
 
-
+// Creates a camera
 Camera* camera = new Camera("test");
 
 // timing
@@ -41,7 +40,6 @@ int main(){
 
 	while (!glfwWindowShouldClose(window)) {
 
-		// not sure the updating is correct
 
 		// deltaTime
 		double current = static_cast<float>(glfwGetTime());
@@ -51,6 +49,7 @@ int main(){
 
 		// process input function
 		InputManager::processInput(window, *camera, deltaTime);
+
 		update();
 
 		while (lag >= MS_PER_UPDATE) {
@@ -60,7 +59,7 @@ int main(){
 
 		}
 
-
+		// Passed the vector to the Rendermanager where it will loop and call every objects draw function
 		RenderManager::render(gameobjects);
 		
 	}
@@ -73,16 +72,16 @@ int main(){
 
 void start() {
 
-		
-		tempfunc();
-		gameobjects.push_back(GameObject("Object", "cube", *camera));
+
+		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
+		gameobjects.push_back(GameObject("backpack", "models/backpack/backpack.obj", *camera));
 
 
 }
 
 void update() {
 
-
+	// Loops through all game objects and updates their status, like position and rotation.
 	for (int i = 0; i < gameobjects.size(); i++) {
 
 		gameobjects[i].Update();

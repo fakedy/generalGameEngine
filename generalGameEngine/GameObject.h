@@ -3,6 +3,8 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include"Model.h"
 #include"Camera.h"
+#include"Shader.h"
+#include"logger.h"
 #include<iostream>
 
 class GameObject
@@ -14,10 +16,11 @@ public:
 	glm::fvec3 position = glm::fvec3(0,0,0);
 	float rotation;
 	bool staticObject = false;
-	std::string modelPath; 
+	std::string modelPath;
 	Model* model;
 
 	Camera* camera;
+	Shader* shader;
 
 
 
@@ -37,6 +40,9 @@ public:
 		if (&modelPath != NULL)
 
 			model = new Model(modelPath);
+			// doesnt this technically mean I create a new shader for every single object instead of reusing the same one?
+			shader = new Shader("vsDefaultShader.glsl", "fsDefaultShader.glsl");
+
 	}
 
 	void Draw();
