@@ -72,7 +72,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>G:\Libraries\include;C:\Users\Jimmy\source\repos\generalGameEngine\generalGameEngine;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>G:\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>G:\Libraries\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

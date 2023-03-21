@@ -74,7 +74,7 @@ void start() {
 
 
 		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
-		gameobjects.push_back(GameObject("backpack", "models/backpack/backpack.obj", *camera));
+		gameobjects.push_back(GameObject("backpack", "models/backpack2/backpack2.obj", *camera));
 
 
 }
