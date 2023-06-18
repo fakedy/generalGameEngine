@@ -1,10 +1,13 @@
 #include "InputManager.h"
 #include "logger.h"
+#include "Scene.h"
 
 
 static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
+Camera* camera;
 
 
 bool firstMouse = true;
@@ -24,6 +27,25 @@ int InputManager::startUp() {
 
 	return 1;
 }
+
+
+void setCamera(Camera* cameraUsed) {
+
+    std::cout << "bro please" << std::endl;
+
+    camera = cameraUsed;
+
+}
+
+/*void InputManager::setScene(Scene* sceneUsed) {
+
+    scene = sceneUsed;
+
+}
+*/
+
+
+
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -46,21 +68,26 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 }
 
-void InputManager::processInput(GLFWwindow *window, Camera& camera, double deltaTime) {
+void InputManager::processInput(GLFWwindow *window, double deltaTime) {
 
-	camera.deltaTime = deltaTime;
+
+    if (camera == NULL)
+        std::cout<< " null pointer " << std::endl;
+
+    camera->deltaTime = deltaTime;
+
 
 
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		camera.ProcessKeyboard(FORWARD);
+		camera->ProcessKeyboard(FORWARD);
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		camera.ProcessKeyboard(BACKWARD);
+		camera->ProcessKeyboard(BACKWARD);
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		camera.ProcessKeyboard(LEFT);
+		camera->ProcessKeyboard(LEFT);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		camera.ProcessKeyboard(RIGHT);
-
+		camera->ProcessKeyboard(RIGHT);
+    
 
 }
 
@@ -86,9 +113,9 @@ static void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     lastY = ypos;
 
     //camera.ProcessMouseMovement(xoffset, yoffset);
+    
     if( menu != true)
         camera->ProcessMouseMovement(xoffset, yoffset);
-    
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called

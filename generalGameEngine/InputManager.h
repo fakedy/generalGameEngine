@@ -3,13 +3,16 @@
 #include<GLFW/glfw3.h>
 #include"Commander.h"
 #include"generalGameEngine.h"
+#include"Scene.h"
 
 
-
+void setCamera(Camera* cameraUsed);
 
 class InputManager
 {
 public:
 	static int startUp();
-	static void processInput(GLFWwindow* window, Camera& camera, double deltaTime);
+
+	//void setScene(Scene* sceneUsed);
+	static void processInput(GLFWwindow* window, double deltaTime);
 };

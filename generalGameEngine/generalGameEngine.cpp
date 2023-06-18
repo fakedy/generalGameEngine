@@ -2,13 +2,12 @@
 #include "logger.h"
 #include "Commander.h"
 #include "GameObject.h"
+#include "Scene.h"
 #include <vector>
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
 
-
-// Creates a camera
-Camera* camera = new Camera("test");
+Scene *scene;
 
 // timing
 double previous = static_cast<float>(glfwGetTime());
@@ -17,15 +16,15 @@ const unsigned int MS_PER_UPDATE = 7; // 1000/144 ms/fps
 double deltaTime;
 
 
-
-std::vector<GameObject> gameobjects; // A vector containing all the gameobjects
-
 void start();
 void update();
 
 
 int main(){
 	
+	scene = new Scene(); 
+
+
 	// inits the subsystems
 	if (!Commander::init()) {
 		Log(ERROR, "SubSystems didnt load properly");
@@ -48,7 +47,8 @@ int main(){
 		lag += deltaTime;
 
 		// process input function
-		InputManager::processInput(window, *camera, deltaTime);
+		// need to fix this not needing the camera referenced
+		InputManager::processInput(window, deltaTime);
 
 		update();
 
@@ -59,8 +59,7 @@ int main(){
 
 		}
 
-		// Passed the vector to the Rendermanager where it will loop and call every objects draw function
-		RenderManager::render(gameobjects);
+		scene->render_scene();
 		
 	}
 
@@ -72,18 +71,25 @@ int main(){
 
 void start() {
 
-		// We have to add the camera we're using but it seem kinda weird way of doing it.
+
+
+		// This has to be made proper
+		// 
+		// 
+		// 
 		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
-		gameobjects.push_back(GameObject("tree", "models/characters/snake_shirtless/solid_snake_shirtless.obj", *camera));
-		gameobjects[0].position = glm::vec3(5.0, 2.3, 3.0);
-		gameobjects[0].scale = glm::vec3(0.2, 0.2, 0.2);
-		gameobjects.push_back(GameObject("vysage", "models/locations/autumn_plains/autumn_plains.obj", *camera));
+
+		scene->new_gameobject("tree", "models/characters/snake_shirtless/solid_snake_shirtless.obj");
+		scene->new_gameobject("location", "models/locations/autumn_plains/autumn_plains.obj");
+		/*gameobjects.push_back(GameObject("vysage", "models/locations/autumn_plains/autumn_plains.obj", *camera));
+		
+		gameobjects[1].staticObject = true;
 		gameobjects[1].position = glm::vec3(-60.0, -15, 70.0);
 		gameobjects[1].scale = glm::vec3(0.01, 0.01, 0.01);
 		gameobjects[1].rotateAxis = glm::vec3(1, 0, 0);
 		gameobjects[1].rotation = -90.f;
 
-
+		*/
 
 
 
@@ -92,13 +98,8 @@ void start() {
 
 void update() {
 
-	// Loops through all game objects and updates their status, like position and rotation.
-	for (int i = 0; i < gameobjects.size(); i++) {
+	scene->update_scene();
 
-		gameobjects[i].Update();
-
-
-	}
 
 }
 

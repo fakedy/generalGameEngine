@@ -2,9 +2,9 @@
 #include<glm/glm.hpp>
 #include<glm/gtc/matrix_transform.hpp>
 #include"Model.h"
-#include"Camera.h"
 #include"Shader.h"
 #include"logger.h"
+#include"Camera.h"
 #include<iostream>
 
 class GameObject
@@ -21,8 +21,8 @@ public:
 	std::string modelPath;
 	Model* model;
 
-	Camera* camera;
 	Shader* shader;
+	Camera* camera;
 
 
 
@@ -34,6 +34,7 @@ private:
 
 public:
 	GameObject(std::string const& name, std::string const& path, Camera& usedcamera) {
+
 
 		objectName = name;
 		modelPath = path;
