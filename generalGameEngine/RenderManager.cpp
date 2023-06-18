@@ -4,7 +4,10 @@
 #include"Shader.h"
 #include "Framebuffer.h"
 #include <vector>
-
+#include"imgui.h"
+#include"imgui_impl_glfw.h"
+#include"imgui_impl_opengl3.h"
+#include <glm/gtx/string_cast.hpp>
 
 	GLFWwindow* window;
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -59,6 +62,20 @@
 		return 0;
 	}
 
+
+
+
+	// Setup Dear ImGui context
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO();
+	// Setup Platform/Renderer bindings
+	ImGui_ImplGlfw_InitForOpenGL(window, true);
+	ImGui_ImplOpenGL3_Init();
+	// Setup Dear ImGui style
+	ImGui::StyleColorsDark();
+
+
 	return 1;
 
 }
@@ -87,8 +104,27 @@
 
 		}
 
+		
+
 
 		framebuffer_render();
+
+		// feed inputs to dear imgui, start new frame
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		// render your GUI
+		ImGui::Begin("Gameobjects");
+		for (int i = 0; i < gameobjects.size(); i++) {
+			ImGui::Text(gameobjects[i].objectName.c_str());
+			ImGui::Text(glm::to_string(gameobjects[i].position).c_str());
+		}
+		ImGui::End();
+
+		// Render dear imgui into screen
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window);
 

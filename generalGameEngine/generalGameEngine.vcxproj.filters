@@ -31,6 +31,12 @@
     <Filter Include="Resource Files\shaders">
       <UniqueIdentifier>{df2be066-ed4f-4409-b7d0-449f40530747}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SubSystems\Rendering\imgui">
+      <UniqueIdentifier>{e4c84edb-10c1-4d0e-9873-4e060a15a573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SubSystems\Rendering\imgui">
+      <UniqueIdentifier>{7ce0d573-efc0-43b2-bf0d-f46e365cc4cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="generalGameEngine.cpp">
@@ -71,6 +77,24 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_glfw.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_opengl3.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +145,33 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_glfw.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3_loader.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

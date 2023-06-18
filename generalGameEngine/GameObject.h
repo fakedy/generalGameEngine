@@ -34,7 +34,7 @@ private:
 
 public:
 	GameObject() = default;
-	GameObject(std::string const& name, glm::vec3 Position, glm::vec3 size,glm::vec3 rotaxis, float rot, std::string const& path, Camera& usedcamera) {
+	GameObject(std::string const& name, std::string const& path, glm::vec3 Position, glm::vec3 size,glm::vec3 rotaxis, float rot, Camera& usedcamera) {
 
 
 		objectName = name;

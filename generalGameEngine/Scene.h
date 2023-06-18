@@ -42,7 +42,7 @@ public:
 
 
 	void init_scene();
-	void new_gameobject(std::string const& name = "gameobject",glm::vec3 position = glm::vec3(0.0, 0.0, 0.0), glm::vec3 size = glm::vec3(1.0, 1.0, 1.0), glm::vec3 rotaxis = glm::vec3(1.0, 1.0, 1.0), float rotation = 0.0, std::string const& path = "models/default/errorcube.obj");
+	void new_gameobject(std::string const& name = "gameobject", std::string const& path = "models/default/errorcube.obj", glm::vec3 position = glm::vec3(0.0, 0.0, 0.0), glm::vec3 size = glm::vec3(1.0, 1.0, 1.0), glm::vec3 rotaxis = glm::vec3(1.0, 1.0, 1.0), float rotation = 0.0);
 
 	void update_scene();
 

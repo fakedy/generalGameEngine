@@ -6,7 +6,9 @@
 #include <vector>
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
-
+#include"imgui.h"
+#include"imgui_impl_glfw.h"
+#include"imgui_impl_opengl3.h"
 Scene *scene;
 
 // timing
@@ -72,26 +74,15 @@ int main(){
 void start() {
 
 
-
 		// This has to be made proper
 		// 
 		// 
 		// 
 		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
 
-		scene->new_gameobject("tree", glm::vec3(0.0, 0.0, 0.0), glm::vec3(1,1,1), glm::vec3(1, 1, 1), 0.0, "models/characters/snake_shirtless/solid_snake_shirtless.obj");
-		scene->new_gameobject("location", glm::vec3(-60.0, -15.0, 70.0), glm::vec3(0.01, 0.01, 0.01), glm::vec3(1, 0, 0), -90.0, "models/locations/autumn_plains/autumn_plains.obj");
+		scene->new_gameobject("snake", "models/characters/snake_shirtless/solid_snake_shirtless.obj");
+		scene->new_gameobject("location", "models/locations/autumn_plains/autumn_plains.obj", glm::vec3(-60.0, -15.0, 70.0), glm::vec3(0.01, 0.01, 0.01), glm::vec3(1, 0, 0), -90.0);
 
-
-		/*gameobjects.push_back(GameObject("vysage", "models/locations/autumn_plains/autumn_plains.obj", *camera));
-		
-		gameobjects[1].staticObject = true;
-		gameobjects[1].position = glm::vec3(-60.0, -15, 70.0);
-		gameobjects[1].scale = glm::vec3(0.01, 0.01, 0.01);
-		gameobjects[1].rotateAxis = glm::vec3(1, 0, 0);
-		gameobjects[1].rotation = -90.f;
-
-		*/
 
 
 

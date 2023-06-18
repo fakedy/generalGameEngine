@@ -10,11 +10,11 @@ void Scene::init_scene() {
 // temporary ID for our gameobjects
 unsigned int temp = 0;
 
-void Scene::new_gameobject(std::string const& name, glm::vec3 position, glm::vec3 size, glm::vec3 rotaxis, float rot, std::string const& path)
+void Scene::new_gameobject(std::string const& name, std::string const& path, glm::vec3 position, glm::vec3 size, glm::vec3 rotaxis, float rot)
 {
 
 	//gameobjects.push_back(GameObject(name, path, *camera));
-	gameobjects.emplace(temp, GameObject(name, position, size, rotaxis, rot, path, *camera));
+	gameobjects.emplace(temp, GameObject(name, path, position, size, rotaxis, rot, *camera));
 	temp += 1;
 
 }
