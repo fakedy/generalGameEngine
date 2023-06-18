@@ -13,8 +13,10 @@ public:
 
 
 	std::string objectName = "gameobject";
-	glm::fvec3 position = glm::fvec3(0,0,0);
-	float rotation;
+	glm::vec3 position = glm::fvec3(0,0,0);
+	glm::vec3 scale = glm::fvec3(1.0, 1.0, 1.0);
+	glm::vec3 rotateAxis = glm::fvec3(0.0, 1.0, 0.0);
+	float rotation = 0.0f;
 	bool staticObject = false;
 	std::string modelPath;
 	Model* model;
@@ -41,7 +43,7 @@ public:
 
 			model = new Model(modelPath);
 			// doesnt this technically mean I create a new shader for every single object instead of reusing the same one?
-			shader = new Shader("vsDefaultShader.glsl", "fsDefaultShader.glsl");
+			shader = new Shader("shaders/vsDefaultShader.glsl", "shaders/fsDefaultShader.glsl");
 
 	}
 

@@ -29,7 +29,7 @@ int main(){
 	// inits the subsystems
 	if (!Commander::init()) {
 		Log(ERROR, "SubSystems didnt load properly");
-		return -1;
+		return 0;
 	}
 
 
@@ -72,9 +72,20 @@ int main(){
 
 void start() {
 
-
+		// We have to add the camera we're using but it seem kinda weird way of doing it.
 		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
-		gameobjects.push_back(GameObject("backpack", "models/backpack2/backpack2.obj", *camera));
+		gameobjects.push_back(GameObject("tree", "models/characters/snake_shirtless/solid_snake_shirtless.obj", *camera));
+		gameobjects[0].position = glm::vec3(5.0, 2.3, 3.0);
+		gameobjects[0].scale = glm::vec3(0.2, 0.2, 0.2);
+		gameobjects.push_back(GameObject("vysage", "models/locations/autumn_plains/autumn_plains.obj", *camera));
+		gameobjects[1].position = glm::vec3(-60.0, -15, 70.0);
+		gameobjects[1].scale = glm::vec3(0.01, 0.01, 0.01);
+		gameobjects[1].rotateAxis = glm::vec3(1, 0, 0);
+		gameobjects[1].rotation = -90.f;
+
+
+
+
 
 
 }

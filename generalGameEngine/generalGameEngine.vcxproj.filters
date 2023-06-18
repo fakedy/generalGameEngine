@@ -22,6 +22,15 @@
     <Filter Include="Header Files\Primitives">
       <UniqueIdentifier>{436601f2-626f-41b5-8cf5-da77ca9a50e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SubSystems\Rendering">
+      <UniqueIdentifier>{aa285d49-642e-49f6-b49a-b59fdbcd454f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SubSystems\Rendering">
+      <UniqueIdentifier>{92449831-a0bc-4b37-a783-5ac9f3fc8d93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{df2be066-ed4f-4409-b7d0-449f40530747}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="generalGameEngine.cpp">
@@ -56,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Source Files\SubSystems\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,13 +113,22 @@
     <ClInclude Include="Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Header Files\SubSystems\Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fsDefaultShader.glsl">
-      <Filter>Resource Files</Filter>
+    <None Include="shaders\fsDefaultShader.glsl">
+      <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="vsDefaultShader.glsl">
-      <Filter>Resource Files</Filter>
+    <None Include="shaders\fsFramebuffer_screen.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="shaders\vsDefaultShader.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="shaders\vsFramebuffer_screen.glsl">
+      <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

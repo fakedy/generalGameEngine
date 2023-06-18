@@ -6,9 +6,12 @@
 
 	extern GLFWwindow* window;
 
+
 	// settings
-	extern const unsigned int SCR_WIDTH;
-	extern const unsigned int SCR_HEIGHT;
+	extern unsigned int SCR_WIDTH;
+	extern unsigned int SCR_HEIGHT;
+	extern unsigned int RENDER_WIDTH;
+	extern unsigned int RENDER_HEIGHT;
 
 
 class RenderManager

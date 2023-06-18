@@ -1,6 +1,8 @@
 #include "RenderManager.h"
 #include "logger.h"
 #include "GameObject.h"
+#include"Shader.h"
+#include "Framebuffer.h"
 #include <vector>
 
 
@@ -8,15 +10,18 @@
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 	// settings
-	const unsigned int SCR_WIDTH = 1920;
-	const unsigned int SCR_HEIGHT = 1080;
+	unsigned int SCR_WIDTH = 1920;
+	unsigned int SCR_HEIGHT = 1080;
+
+	unsigned int RENDER_WIDTH = 384;
+	unsigned int RENDER_HEIGHT = 216;
 
 	int RenderManager::startUp() {
 	
 
 	if (!glfwInit()) {
 		Log(ERROR, "GLFW didnt load");
-		return -1;
+		return 0;
 	}
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -26,7 +31,7 @@
 	if (!window) {
 		Log(ERROR, "Window creation failed");
 		shutDown();
-		return -1;
+		return 0;
 	}
 
 	glfwMakeContextCurrent(window);
@@ -38,15 +43,23 @@
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
 		Log(ERROR, "Glad did not load");
 		shutDown();
-		return -1;
+		return 0;
 	}
 
 	// vsync 0 = off
 	glfwSwapInterval(0);
-	glEnable(GL_DEPTH_TEST);
 	//glDepthFunc(GL_ALWAYS); // for future
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	
+	glEnable(GL_CULL_FACE);
+
+
+
+	if (!framebuffer_setup()) {
+		Log(ERROR, "Framebuffer error");
+		return 0;
+	}
+
+	return 1;
 
 }
 
@@ -59,18 +72,23 @@
 
 	void RenderManager::render(std::vector<GameObject> gameobjects) {
 
-		glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		framebuffer_bind();
+		
 
+		glClearColor(0.0, 0.0, 0.0, 1.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+		glEnable(GL_DEPTH_TEST); // enable depth testing (is disabled for rendering screen-space quad)
 		// rendering
-
+		glViewport(0, 0, RENDER_WIDTH, RENDER_HEIGHT);
 		for (int i = 0; i < gameobjects.size(); i++){
 
 		gameobjects[i].Draw();
 
 		}
-		
 
+
+		framebuffer_render();
 
 		glfwSwapBuffers(window);
 
@@ -81,5 +99,7 @@
 
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 		glViewport(0, 0, width, height);
+		SCR_WIDTH = width;
+		SCR_HEIGHT = height;
 	}
 

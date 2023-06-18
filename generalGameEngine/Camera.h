@@ -47,7 +47,7 @@ public:
 	double deltaTime;
 
 
-	Camera (std::string name, glm::vec3 Position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f), float Yaw = YAW, float Pitch = PITCH) : front(glm::vec3(0.0f, 0.0f, -1.0f)), movSpeed(SPEED), mouseSensitivity(SENSITIVITY), zoom(ZOOM) {
+	Camera (std::string name, glm::vec3 Position = glm::vec3(0.0f, 8.0f, 15.0f), glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f), float Yaw = YAW, float Pitch = PITCH) : front(glm::vec3(0.0f, 0.0f, -1.0f)), movSpeed(SPEED), mouseSensitivity(SENSITIVITY), zoom(ZOOM) {
 
 		cameraName = name;
 		projection = glm::perspective(glm::radians(45.0f), 1920.0f / 1080.0f, 0.1f, 100.0f);

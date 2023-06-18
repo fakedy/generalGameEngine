@@ -34,8 +34,8 @@ vec3 diffuse = diff * lightColor;
 
 float get_fog_factor() {
 
-	float nearplane = 80.0; // Where the fog starts
-	float farplane = 90.0; // where the max fog is reached
+	float nearplane = 0.0; // Where the fog starts
+	float farplane = 100.0; // where the max fog is reached
 
 	float fogmax = 1.0 * farplane;
 	float fogmin = 0.5 * farplane;
@@ -55,6 +55,6 @@ void main()
 		discard;
 
 
-	FragColor = mix(texColor, vec4(vec3(0.8, 0.86, 0.8), 0.0), fogFactor); // fogfactor is the blend value aka the fog
+	FragColor = mix(texColor, vec4(vec3(247/255, 187/255, 96/255), 0.0), fogFactor); // fogfactor is the blend value aka the fog
 
 }

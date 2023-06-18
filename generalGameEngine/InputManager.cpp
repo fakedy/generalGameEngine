@@ -4,17 +4,20 @@
 
 static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 
 bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 
+bool menu = false;
+
 
 int InputManager::startUp() {
 
     glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetKeyCallback(window, key_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
     
@@ -22,15 +25,32 @@ int InputManager::startUp() {
 	return 1;
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    // Code to display the cursor when pressing esc
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+
+        menu = !menu;
+
+        if (menu == true) {
+            //glfwSetWindowShouldClose(window, true);
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        }
+        else {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        }
+
+    }
 
 
+
+}
 
 void InputManager::processInput(GLFWwindow *window, Camera& camera, double deltaTime) {
 
 	camera.deltaTime = deltaTime;
 
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
+
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		camera.ProcessKeyboard(FORWARD);
@@ -41,12 +61,6 @@ void InputManager::processInput(GLFWwindow *window, Camera& camera, double delta
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT);
 
-
-   /* if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    }
-   */
 
 }
 
@@ -72,7 +86,8 @@ static void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     lastY = ypos;
 
     //camera.ProcessMouseMovement(xoffset, yoffset);
-    camera->ProcessMouseMovement(xoffset, yoffset);
+    if( menu != true)
+        camera->ProcessMouseMovement(xoffset, yoffset);
     
 }
 
@@ -83,3 +98,5 @@ static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
     //camera.ProcessMouseScroll(static_cast<float>(yoffset));
     Log(INFO, "fuck");
 }
+
+

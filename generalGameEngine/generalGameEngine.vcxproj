@@ -75,6 +75,10 @@
     <ExternalIncludePath>G:\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>G:\Libraries\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ExternalIncludePath>G:\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>G:\Libraries\libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -131,11 +135,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Commander.cpp" />
+    <ClCompile Include="Framebuffer.cpp" />
     <ClCompile Include="G:\Libraries\opengl glad.c\glad.c" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -150,6 +156,7 @@
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Commander.h" />
+    <ClInclude Include="Framebuffer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="generalGameEngine.h" />
     <ClInclude Include="InputManager.h" />
@@ -163,8 +170,10 @@
     <ClInclude Include="TextureLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fsDefaultShader.glsl" />
-    <None Include="vsDefaultShader.glsl" />
+    <None Include="shaders\fsDefaultShader.glsl" />
+    <None Include="shaders\fsFramebuffer_screen.glsl" />
+    <None Include="shaders\vsDefaultShader.glsl" />
+    <None Include="shaders\vsFramebuffer_screen.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
