@@ -70,7 +70,7 @@
 	}
 
 
-	void RenderManager::render(std::vector<GameObject> gameobjects) {
+	void RenderManager::render(std::unordered_map<unsigned int, GameObject> gameobjects) {
 
 		framebuffer_bind();
 		

@@ -11,7 +11,7 @@ class GameObject
 {
 public:
 
-
+	unsigned int objectID;
 	std::string objectName = "gameobject";
 	glm::vec3 position = glm::fvec3(0,0,0);
 	glm::vec3 scale = glm::fvec3(1.0, 1.0, 1.0);
@@ -33,10 +33,15 @@ private:
 
 
 public:
-	GameObject(std::string const& name, std::string const& path, Camera& usedcamera) {
+	GameObject() = default;
+	GameObject(std::string const& name, glm::vec3 Position, glm::vec3 size,glm::vec3 rotaxis, float rot, std::string const& path, Camera& usedcamera) {
 
 
 		objectName = name;
+		position = Position;
+		scale = size;
+		rotateAxis = rotaxis;
+		rotation = rot;
 		modelPath = path;
 		camera = &usedcamera;
 

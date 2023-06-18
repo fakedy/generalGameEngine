@@ -5,6 +5,7 @@
 #include "Commander.h"
 #include "Camera.h"
 #include <vector>
+#include <unordered_map>
 
 
 
@@ -24,7 +25,10 @@ public:
 	}
 
 
-	std::vector<GameObject> gameobjects; // A vector containing all the gameobjects
+	//std::vector<GameObject> gameobjects; // A vector containing all the gameobjects
+	std::unordered_map<unsigned int, GameObject> gameobjects;
+
+
 
 	~Scene() {
 
@@ -38,7 +42,7 @@ public:
 
 
 	void init_scene();
-	void new_gameobject(std::string const& name, std::string const& path);
+	void new_gameobject(std::string const& name = "gameobject",glm::vec3 position = glm::vec3(0.0, 0.0, 0.0), glm::vec3 size = glm::vec3(1.0, 1.0, 1.0), glm::vec3 rotaxis = glm::vec3(1.0, 1.0, 1.0), float rotation = 0.0, std::string const& path = "models/default/errorcube.obj");
 
 	void update_scene();
 

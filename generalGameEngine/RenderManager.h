@@ -3,6 +3,7 @@
 #include<GLFW/glfw3.h>
 #include<vector>
 #include"GameObject.h"
+#include<unordered_map>
 
 	extern GLFWwindow* window;
 
@@ -29,7 +30,7 @@ public:
 
 	static int startUp();
 	static void shutDown();
-	static void render(std::vector<GameObject> gameobjects);
+	static void render(std::unordered_map<unsigned int, GameObject>);
 
 };
 

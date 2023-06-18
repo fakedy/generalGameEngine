@@ -79,8 +79,10 @@ void start() {
 		// 
 		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
 
-		scene->new_gameobject("tree", "models/characters/snake_shirtless/solid_snake_shirtless.obj");
-		scene->new_gameobject("location", "models/locations/autumn_plains/autumn_plains.obj");
+		scene->new_gameobject("tree", glm::vec3(0.0, 0.0, 0.0), glm::vec3(1,1,1), glm::vec3(1, 1, 1), 0.0, "models/characters/snake_shirtless/solid_snake_shirtless.obj");
+		scene->new_gameobject("location", glm::vec3(-60.0, -15.0, 70.0), glm::vec3(0.01, 0.01, 0.01), glm::vec3(1, 0, 0), -90.0, "models/locations/autumn_plains/autumn_plains.obj");
+
+
 		/*gameobjects.push_back(GameObject("vysage", "models/locations/autumn_plains/autumn_plains.obj", *camera));
 		
 		gameobjects[1].staticObject = true;

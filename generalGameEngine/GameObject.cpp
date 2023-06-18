@@ -28,6 +28,7 @@ void GameObject::Draw()
 	trans = glm::scale(trans, scale);
 	trans = glm::rotate(trans, glm::radians(rotation), rotateAxis);
 
+
 	shader->setMat4("transform", trans);
 
 
