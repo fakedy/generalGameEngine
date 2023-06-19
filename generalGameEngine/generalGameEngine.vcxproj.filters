@@ -37,6 +37,9 @@
     <Filter Include="Header Files\SubSystems\Rendering\imgui">
       <UniqueIdentifier>{7ce0d573-efc0-43b2-bf0d-f46e365cc4cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\scenes">
+      <UniqueIdentifier>{7989c0d3-e105-4744-851e-71a4fed7bd68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="generalGameEngine.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="imgui_widgets.cpp">
       <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>Source Files\SubSystems\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="imstb_truetype.h">
       <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>Header Files\SubSystems\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

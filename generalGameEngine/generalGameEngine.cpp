@@ -74,19 +74,16 @@ int main(){
 void start() {
 
 
-		// This has to be made proper
-		// 
-		// 
-		// 
-		// Creates a new gameobject and adds it to a vector so we can keep track of all gameobjects.
+		// Loads a scene file from disk.
+		scene->load_scene("scenes/autumn_valley.scene");
 
-		scene->new_gameobject("snake", "models/characters/snake_shirtless/solid_snake_shirtless.obj");
+		// Loads model files as stores them as gameobjects in an unordered map
 		scene->new_gameobject("location", "models/locations/autumn_plains/autumn_plains.obj", glm::vec3(-60.0, -15.0, 70.0), glm::vec3(0.01, 0.01, 0.01), glm::vec3(1, 0, 0), -90.0);
+		scene->new_gameobject("spyro", "models/characters/spyro/spyro.obj", glm::vec3(0.0, 5.0, 30.0));
+		scene->new_gameobject("spyro", "models/skybox/Ashleys_Flashback/Ashley_flashback_no_tree.obj", glm::vec3(0.0, -16.0, -15.0), glm::vec3(3.5, 3.5, 3.5));
 
 
-
-
-
+		scene->save_scene("autumn_valley.scene");
 }
 
 void update() {

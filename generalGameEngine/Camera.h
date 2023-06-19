@@ -17,7 +17,7 @@ enum Camera_Movement {
 // Default camera values
 const float YAW = -90.0f;
 const float PITCH = 0.0f;
-const float SPEED = 10.0f;
+const float SPEED = 20.0f;
 const float SENSITIVITY = 0.1f;
 const float ZOOM = 90.0f;
 
@@ -50,7 +50,7 @@ public:
 	Camera (std::string name, glm::vec3 Position = glm::vec3(0.0f, 8.0f, 15.0f), glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f), float Yaw = YAW, float Pitch = PITCH) : front(glm::vec3(0.0f, 0.0f, -1.0f)), movSpeed(SPEED), mouseSensitivity(SENSITIVITY), zoom(ZOOM) {
 
 		cameraName = name;
-		projection = glm::perspective(glm::radians(45.0f), 1920.0f / 1080.0f, 0.1f, 100.0f);
+		projection = glm::perspective(glm::radians(45.0f), 1920.0f / 1080.0f, 0.1f, 200.0f);
 		position = Position;
 		worldUp = Up;
 		yaw = Yaw;

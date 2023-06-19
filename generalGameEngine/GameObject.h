@@ -22,6 +22,10 @@ public:
 	Model* model;
 
 	Shader* shader;
+
+	std::string fragmentShader = "shaders/fsDefaultShader.glsl";
+	std::string vertexShader = "shaders/vsDefaultShader.glsl";
+
 	Camera* camera;
 
 
@@ -34,7 +38,7 @@ private:
 
 public:
 	GameObject() = default;
-	GameObject(std::string const& name, std::string const& path, glm::vec3 Position, glm::vec3 size,glm::vec3 rotaxis, float rot, Camera& usedcamera) {
+	GameObject(std::string const& name, std::string const& path, glm::vec3 Position, glm::vec3 size,glm::vec3 rotaxis, float rot, std::string const& vShader, std::string const& fShader, Camera& usedcamera) {
 
 
 		objectName = name;
@@ -43,13 +47,15 @@ public:
 		rotateAxis = rotaxis;
 		rotation = rot;
 		modelPath = path;
+		vertexShader = vShader;
+		fragmentShader = fShader;
 		camera = &usedcamera;
 
 		if (&modelPath != NULL)
 
 			model = new Model(modelPath);
 			// doesnt this technically mean I create a new shader for every single object instead of reusing the same one?
-			shader = new Shader("shaders/vsDefaultShader.glsl", "shaders/fsDefaultShader.glsl");
+			shader = new Shader(vertexShader.c_str(), fragmentShader.c_str());
 
 	}
 

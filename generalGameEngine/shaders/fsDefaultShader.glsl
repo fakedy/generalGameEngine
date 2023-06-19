@@ -34,8 +34,8 @@ vec3 diffuse = diff * lightColor;
 
 float get_fog_factor() {
 
-	float nearplane = 0.0; // Where the fog starts
-	float farplane = 100.0; // where the max fog is reached
+	float nearplane = 190.0; // Where the fog starts
+	float farplane = 200.0; // where the max fog is reached
 
 	float fogmax = 1.0 * farplane;
 	float fogmin = 0.5 * farplane;
