@@ -4,23 +4,7 @@
 #include<fstream>
 
 
-void Scene::load_scene(std::string const& path)
-{
-}
 
-void Scene::save_scene(std::string const& name)
-{
-
-	std::ofstream sceneFile;
-	
-	sceneFile.open("scenes/" + name);
-	for (int i = 0; i < gameobjects.size(); i++) {
-
-		sceneFile << "test\n";
-	}
-
-	sceneFile.close();
-}
 
 void Scene::init_scene() {
 

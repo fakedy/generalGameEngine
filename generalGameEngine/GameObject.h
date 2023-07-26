@@ -62,6 +62,8 @@ public:
 	void Draw();
 
 	void Update();
+
+	void load_model(std::string const& path);
 	
 };
 

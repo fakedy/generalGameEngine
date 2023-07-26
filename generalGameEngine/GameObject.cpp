@@ -50,3 +50,14 @@ void GameObject::Update()
 	}
 
 }
+
+void GameObject::load_model(std::string const& path)
+{
+
+	modelPath = path;
+
+	model = new Model(modelPath);
+
+
+
+}

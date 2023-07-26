@@ -38,8 +38,7 @@ public:
 
 public:
 
-	void load_scene(std::string const& path);
-	void save_scene(std::string const& name);
+	std::string const& name = "defaultscene";
 
 
 	void init_scene();

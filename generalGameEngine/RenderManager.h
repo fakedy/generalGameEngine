@@ -30,7 +30,7 @@ public:
 
 	static int startUp();
 	static void shutDown();
-	static void render(std::unordered_map<unsigned int, GameObject>);
+	static void render(std::unordered_map<unsigned int, GameObject> &gameobject);
 
 };
 

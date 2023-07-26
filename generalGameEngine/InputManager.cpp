@@ -1,7 +1,9 @@
 #include "InputManager.h"
 #include "logger.h"
 #include "Scene.h"
-
+#include"imgui.h"
+#include"imgui_impl_glfw.h"
+#include"imgui_impl_opengl3.h"
 
 static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -23,15 +25,12 @@ int InputManager::startUp() {
     glfwSetKeyCallback(window, key_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     
-    
-
 	return 1;
 }
 
 
 void setCamera(Camera* cameraUsed) {
 
-    std::cout << "bro please" << std::endl;
 
     camera = cameraUsed;
 
@@ -52,18 +51,20 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     // Code to display the cursor when pressing esc
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
 
+
         menu = !menu;
 
         if (menu == true) {
             //glfwSetWindowShouldClose(window, true);
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+
         }
         else {
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
         }
 
     }
-
 
 
 }
@@ -71,12 +72,11 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void InputManager::processInput(GLFWwindow *window, double deltaTime) {
 
 
+
     if (camera == NULL)
-        std::cout<< " null pointer " << std::endl;
+        std::cout<< " null camera pointer " << std::endl;
 
     camera->deltaTime = deltaTime;
-
-
 
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -87,8 +87,6 @@ void InputManager::processInput(GLFWwindow *window, double deltaTime) {
 		camera->ProcessKeyboard(LEFT);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera->ProcessKeyboard(RIGHT);
-    
-
 }
 
 
@@ -99,6 +97,8 @@ static void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
     float xpos = static_cast<float>(xposIn);
     float ypos = static_cast<float>(yposIn);
 
+    //std::cout << "GLFW mousepos: " << "(" << xpos << ", " << ypos << ")" << std::endl;
+    
     if (firstMouse)
     {
         lastX = xpos;

@@ -157,6 +157,7 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="generalGameEngine.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="UserInterface.cpp" />
   </ItemGroup>
@@ -183,6 +184,7 @@
     <ClInclude Include="primitives.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="TextureLoader.h" />

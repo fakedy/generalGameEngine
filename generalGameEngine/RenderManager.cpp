@@ -9,13 +9,15 @@
 
 	GLFWwindow* window;
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+	void window_size_callback(GLFWwindow* window, int width, int height);
+	void window_focus_callback(GLFWwindow* window, int focused);
 
 	// settings
 	unsigned int SCR_WIDTH = 1920;
 	unsigned int SCR_HEIGHT = 1080;
 
-	unsigned int RENDER_WIDTH = 384;
-	unsigned int RENDER_HEIGHT = 216;
+	unsigned int RENDER_WIDTH = 2560;
+	unsigned int RENDER_HEIGHT = 1440;
 
 	int RenderManager::startUp() {
 	
@@ -37,6 +39,8 @@
 
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+	glfwSetWindowSizeCallback(window, window_size_callback);
+	glfwSetWindowFocusCallback(window, window_focus_callback);
 
 
 	// load glad
@@ -54,6 +58,8 @@
 	glEnable(GL_CULL_FACE);
 
 
+	InputManager::startUp();
+	ui_setup();
 
 	if (!framebuffer_setup()) {
 		Log(ERROR, "Framebuffer error");
@@ -63,7 +69,6 @@
 
 
 
-	ui_setup();
 
 
 	return 1;
@@ -72,12 +77,14 @@
 
 	void RenderManager::shutDown() {
 
+		ui_destroy();
+		glfwDestroyWindow(window);
 		glfwTerminate();
 
 	}
 
 
-	void RenderManager::render(std::unordered_map<unsigned int, GameObject> gameobjects) {
+	void RenderManager::render(std::unordered_map<unsigned int, GameObject> &gameobjects) {
 
 		framebuffer_bind();
 		
@@ -95,12 +102,9 @@
 		}
 
 		
-
-
 		framebuffer_render();
 
 		ui_render(gameobjects);
-		
 
 		glfwSwapBuffers(window);
 
@@ -110,8 +114,27 @@
 	}
 
 	static void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-		glViewport(0, 0, width, height);
+		//glViewport(0, 0, width, height);
 		SCR_WIDTH = width;
 		SCR_HEIGHT = height;
+		//std::cout << "framebuffer width: " << width << std::endl;
 	}
 
+	void window_size_callback(GLFWwindow* window, int width, int height)
+	{
+
+		//std::cout << "window width: " << width << std::endl;
+
+	}
+
+	void window_focus_callback(GLFWwindow* window, int focused) {
+
+		if (focused) {
+			std::cout << "window focused" << std::endl;
+		}
+		else {
+			std::cout << "window not focused" << std::endl;
+		}
+
+
+	}
