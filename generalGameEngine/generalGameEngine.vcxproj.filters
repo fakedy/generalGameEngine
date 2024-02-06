@@ -22,6 +22,24 @@
     <Filter Include="Header Files\Primitives">
       <UniqueIdentifier>{436601f2-626f-41b5-8cf5-da77ca9a50e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SubSystems\Rendering">
+      <UniqueIdentifier>{aa285d49-642e-49f6-b49a-b59fdbcd454f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SubSystems\Rendering">
+      <UniqueIdentifier>{92449831-a0bc-4b37-a783-5ac9f3fc8d93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{df2be066-ed4f-4409-b7d0-449f40530747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SubSystems\Rendering\imgui">
+      <UniqueIdentifier>{e4c84edb-10c1-4d0e-9873-4e060a15a573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SubSystems\Rendering\imgui">
+      <UniqueIdentifier>{7ce0d573-efc0-43b2-bf0d-f46e365cc4cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\scenes">
+      <UniqueIdentifier>{7989c0d3-e105-4744-851e-71a4fed7bd68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="generalGameEngine.cpp">
@@ -45,11 +63,47 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\SubSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files\SubSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files\SubSystems</Filter>
+    <ClCompile Include="Framebuffer.cpp">
+      <Filter>Source Files\SubSystems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_glfw.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_opengl3.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_draw.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_tables.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_widgets.cpp">
+      <Filter>Source Files\SubSystems\Rendering\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp">
+      <Filter>Source Files\SubSystems\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,13 +137,70 @@
     <ClInclude Include="Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="generalGameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\SubSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffer.h">
+      <Filter>Header Files\SubSystems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_glfw.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_opengl3_loader.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imconfig.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_internal.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_rectpack.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_textedit.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imstb_truetype.h">
+      <Filter>Header Files\SubSystems\Rendering\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>Header Files\SubSystems\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fsDefaultShader.glsl">
-      <Filter>Resource Files</Filter>
+    <None Include="shaders\fsDefaultShader.glsl">
+      <Filter>Resource Files\shaders</Filter>
     </None>
-    <None Include="vsDefaultShader.glsl">
-      <Filter>Resource Files</Filter>
+    <None Include="shaders\fsFramebuffer_screen.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="shaders\vsDefaultShader.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="shaders\vsFramebuffer_screen.glsl">
+      <Filter>Resource Files\shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -2,28 +2,31 @@
 #include "logger.h"
 
 
-	RenderManager qRenderManager;
-	InputManager qInputManager;
+	//RenderManager qRenderManager;
+	//InputManager qInputManager;
 
 	int Commander::init() {
 
 		Log(INFO, "Initiating subsystems");
 
 
+		std::cout << std::endl;
+		Log(INFO, "Loading RenderManager");
 		// Starting the RenderManager
-		if (!qRenderManager.startUp()) {
+		if (!RenderManager::startUp()) {
 			Log(ERROR, "RenderManager failed to start properly.");
-			return -1;
+			return 0;
 		}
 		else { Log(INFO, "RenderManager successfully started."); }
 
+		/*
 		// Starting the InputManager
-		if (!qInputManager.startUp()) {
-			Log(ERROR, "InputManager failed to start properly.");
-			return -1;
+		if (!InputManager::startUp()) {
+			Log(ERROR, "InputManager failed to start properly. |");
+			return 0;
 		}
-		else { Log(INFO, "InputManager successfully started."); }
-
+		else { Log(INFO, "InputManager successfully started.   |"); }
+		*/
 
 	}
 	
